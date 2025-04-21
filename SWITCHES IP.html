@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SWITCHES IP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
+            color: #333;
+            padding: 40px;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+        input, button {
+            padding: 10px;
+            margin-top: 10px;
+            width: 90%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #3498db;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .switch-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .switch-list li {
+            background: #e8f6f3;
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 18px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔐 Secure Switch Access</h1>
+    <div class="box">
+        <p>Enter password to view switch details:</p>
+        <input type="password" id="password" placeholder="Enter password">
+        <button onclick="checkPassword()">Submit</button>
+        <div id="output"></div>
+    </div>
+
+    <div id="switches-list" style="display: none;">
+        <h2>📡 Switch Details</h2>
+        <ul class="switch-list">
+            <li><strong>Core-Switch-1</strong><br>IP Address: 192.168.1.10</li>
+            <li><strong>Edge-Switch-2</strong><br>IP Address: 192.168.1.11</li>
+            <li><strong>Access-Switch-3</strong><br>IP Address: 192.168.1.12</li>
+        </ul>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var input = document.getElementById("password").value;
+            var correctPassword = "admin123";  // Set your desired password here
+
+            if (input === correctPassword) {
+                document.getElementById("output").innerHTML = "<strong>✅ Access granted!</strong>";
+                document.getElementById("switches-list").style.display = "block";
+            } else {
+                document.getElementById("output").innerHTML = "<span style='color:red;'>❌ Incorrect password.</span>";
+            }
+        }
+    </script>
+</body>
+</html>
